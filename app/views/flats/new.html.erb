@@ -1,0 +1,16 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-8 col-xs-offset-2">
+      <h3>New appartment</h3>
+
+      <%= simple_form_for [@flat] do |f| %>
+        <%= f.input :name %>
+        <%= f.input :description %>
+        <%= f.input :address %>
+        <%= f.input :max_guests %>
+        <%= f.input :price_per_night %>
+        <%= f.submit "Create new flat", class: "btn btn-primary" %>
+      <% end %>
+    </div>
+  </div>
+</div>
