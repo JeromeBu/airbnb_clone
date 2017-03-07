@@ -89,11 +89,11 @@
 <datatype>TINYINT</datatype>
 <default>NULL</default><relation table="users" row="id" />
 </row>
-<row name="game_id" null="1" autoincrement="0">
+<row name="flat_id" null="1" autoincrement="0">
 <datatype>TINYINT</datatype>
 <default>NULL</default><relation table="flats" row="id" />
 </row>
-<row name="nb_players" null="1" autoincrement="0">
+<row name="nb_guests" null="1" autoincrement="0">
 <datatype>TINYINT</datatype>
 <default>NULL</default></row>
 <row name="arrival_date" null="1" autoincrement="0">
