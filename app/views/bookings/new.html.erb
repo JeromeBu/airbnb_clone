@@ -19,9 +19,9 @@
               <tr>
                 <td><strong><%= current_user.email  %></strong></td>
                 <td><%= @flat.name  %></td>
-                <td><%= @nb_guests.to_i  %></td>
-                <td><%= @arrival_date.strftime('%d/%m/%Y') %></td>
-                <td><%= @leaving_date.strftime('%d/%m/%Y') %></td>
+                <td id="guests"><%= @nb_guests.to_i  %></td>
+                <td id="arrival-date"><%= @arrival_date.strftime('%d/%m/%Y') %></td>
+                <td id="leaving-date"><%= @leaving_date.strftime('%d/%m/%Y') %></td>
               </tr>
             </table>
 

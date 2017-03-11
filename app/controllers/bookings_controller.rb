@@ -7,6 +7,10 @@ class BookingsController < ApplicationController
     @nb_guests = params[:nb_guests]
     params[:arrival_date].nil? || params[:arrival_date] == "" ? @arrival_date = Date.today + 1 : @arrival_date = params[:arrival_date].to_date
     params[:leaving_date].nil? || params[:leaving_date] == "" ? @leaving_date = @arrival_date + 3 : @leaving_date = params[:leaving_date].to_date
+    respond_to do |format|
+        format.html
+        format.js  # <-- will render `app/views/reviews/create.js.erb`
+    end
   end
 
   def create
