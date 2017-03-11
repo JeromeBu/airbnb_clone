@@ -5,5 +5,5 @@ class Booking < ApplicationRecord
 
   validates :nb_guests, presence: true, numericality: { only_integer: true }
   validates :arrival_date, presence: true
-  validates :duration, presence: true
+  validates :leaving_date, presence: true
 end

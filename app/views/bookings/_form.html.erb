@@ -1,0 +1,15 @@
+
+
+
+    <%= form_tag(new_flat_booking_path(@flat), :method => "get") do %>
+        <%= label_tag ":nb_guests", "How many people ?" %>
+        <%= text_field_tag :nb_guests, params[:nb_guests], placeholder: "Number of guests", class: "form-control border-radius", value: @nb_guests.to_i %>
+        <%= label_tag ":arrival_date", "When are you arriving ?" %>
+        <%= text_field_tag :arrival_date, params[:arrival_date], placeholder: "Choose a date", class: "form-control border-radius datepicker", value: @arrival_date.strftime('%d/%m/%Y') %>
+        <%= label_tag ":arrival_date", "When are you leaving ?" %>
+        <%= text_field_tag :leaving_date, params[:leaving_date], placeholder: "Choose a date", class: "form-control border-radius datepicker", value: @leaving_date.strftime('%d/%m/%Y') %>
+        <button type="submit" class="btn btn-primary">Confirm</button>
+    <% end %>
+
+
+

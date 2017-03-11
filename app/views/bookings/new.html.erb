@@ -1,0 +1,69 @@
+  <div class="container mast">
+    <div class="wrap">
+      <div class="row">
+        <div class="col-xs-12 col-md-8 col-md-offset-2 content">
+          <h2>You are about to complete your booking</h2>
+
+            <p>Please review the folowing informations</p>
+
+            <h3>Summary :</h3>
+
+            <table class="table text-center">
+              <tr>
+                <th>User email</th>
+                <th>Flat</th>
+                <th>Number of guests</th>
+                <th>Arrival date</th>
+                <th>Leaving date</th>
+              </tr>
+              <tr>
+                <td><strong><%= current_user.email  %></strong></td>
+                <td><%= @flat.name  %></td>
+                <td><%= @nb_guests.to_i  %></td>
+                <td><%= @arrival_date.strftime('%d/%m/%Y') %></td>
+                <td><%= @leaving_date.strftime('%d/%m/%Y') %></td>
+              </tr>
+            </table>
+
+            <button type="button" data-toggle="modal" data-target="#editBookingModal" class="btn btn-primary">Edit reservation</button>
+
+
+            <h3> Payment informations </h3>
+
+            <p>The price for your purchase is : <strong><%= @flat.price_per_night * (@leaving_date - @arrival_date).to_i %> euros</strong> </p>
+
+            <hr>
+
+
+            <%= simple_form_for [@flat, @booking] do |f|%>
+
+              <%= f.hidden_field :flat_id, value: @flat.id %>
+              <%= f.hidden_field :user_id, value: current_user.id %>
+              <%= f.hidden_field :nb_guests, value: params[:nb_guests].to_i %>
+              <%= f.hidden_field :arrival_date, value: @arrival_date %>
+              <%= f.hidden_field :leaving_date, value: params[:leaving_date].to_i %>
+              <%= f.submit "Confirm and pay", class: 'btn btn-primary' %>
+            <% end %>
+          </div>
+      </div>
+    </div>
+  </div>
+
+
+
+<div class="modal fade" id="editBookingModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h5 class="modal-title" id="myModalLabel">Editing your booking</h5>
+      </div>
+      <div class="modal-body" id="review_form_container">
+        <%= render 'form', flat: @flat, booking: @booking %>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="kite-std-btn" data-dismiss="modal">Fermer</button>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,9 +1,30 @@
-<h3><%= @flat.name %></h3>
+<div class="container">
+  <h3><%= @flat.name %></h3>
 
-<ul>
-  <li>Nom: <%= @flat.name %></li>
-  <li>Description: <%= @flat.description %></li>
-  <li>Addresse: <%= @flat.address %></li>
-  <li>Capacité d'accueil: <%= @flat.max_guests %></li>
-  <li>Prix par nuit :<%= @flat.price_per_night %></li>
-</ul>
+  <ul>
+    <li>Nom: <%= @flat.name %></li>
+    <li>Description: <%= @flat.description %></li>
+    <li>Address: <%= @flat.address %></li>
+    <li>Capacité d'accueil: <%= @flat.max_guests %></li>
+    <li>Prix par nuit:<%= @flat.price_per_night %></li>
+  </ul>
+
+  <div class="row">
+    <div class="col-xs-4">
+      <%= form_tag(new_flat_booking_path(@flat), :method => "get") do %>
+          <%= text_field_tag :nb_guests, params[:nb_guests], placeholder: "Number of guests", class: "form-control border-radius" %>
+          <%= text_field_tag :arrival_date, params[:arrival_date], placeholder: "Choose a date", class: "form-control border-radius datepicker" %>
+          <%= text_field_tag :leaving_date, params[:leaving_date], placeholder: "Choose a date", class: "form-control border-radius datepicker" %>
+          <button type="submit" class="btn btn-primary">Book this flat</button>
+      <% end %>
+    </div>
+  </div>
+
+  <br>
+
+  <%= link_to "Book", new_flat_booking_path(@flat) %>
+
+  <hr>
+
+  <%= link_to "Back to all flats", flats_path %>
+</div>
