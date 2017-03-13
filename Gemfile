@@ -20,6 +20,7 @@ gem 'bootstrap-datepicker-rails'
 
 gem 'omniauth-facebook'
 
+
 group :development, :test do
   gem 'binding_of_caller'
   gem 'better_errors'
