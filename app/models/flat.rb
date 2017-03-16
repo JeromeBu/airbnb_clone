@@ -2,6 +2,8 @@ class Flat < ApplicationRecord
   belongs_to :user
   has_many :bookings
 
+  has_attachments :photos, maximum: 4
+
   validates :name, presence: true
   validates :description, presence: true
   validates :address, presence: true

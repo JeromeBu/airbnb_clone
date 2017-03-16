@@ -9,6 +9,12 @@
     <li>Prix par nuit:<%= @flat.price_per_night %></li>
   </ul>
 
+  <h4>Photos</h4>
+
+  <% @flat.photos.each do |photo| %>
+    <div> <%= cl_image_tag photo.path, width: 300, height: 200, crop: :fill %> </div>
+  <% end %>
+
   <div class="row">
     <div class="col-xs-4">
       <%= form_tag(new_flat_booking_path(@flat), :method => "get") do %>

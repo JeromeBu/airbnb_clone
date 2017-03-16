@@ -3,6 +3,9 @@
 <ul>
   <% @flats.each do |flat|%>
     <li><%= link_to "#{flat.name}", flat_path(flat) %></li>
+    <% unless flat.photos.first.nil? %>
+      <div> <%= cl_image_tag flat.photos.first.path, width: 300, height: 200, crop: :fill  %></div>
+    <% end %>
   <% end %>
 </ul>
 
